@@ -1,0 +1,10 @@
+python train.py --fold 1 --model rf
+python train.py --fold 2 --model rf
+python train.py --fold 3 --model rf
+python train.py --fold 4 --model rf
+python train.py --fold 5 --model rf
+python train.py --fold 6 --model rf
+python train.py --fold 7 --model rf
+python train.py --fold 8 --model rf
+python train.py --fold 9 --model rf
+python train.py --fold 10 --model rf
