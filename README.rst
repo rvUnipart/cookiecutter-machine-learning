@@ -21,6 +21,9 @@ Generate a Python package project::
 
     cookiecutter https://github.com/rvUnipart/cookiecutter-machine-learning.git
 
+Note: mnist data set is not included in cookiecutter due to file size.
+Version used downloaded from here https://www.kaggle.com/datasets/oddrationale/mnist-in-csv
+
 Then:
 
-* Cref
+* ...
