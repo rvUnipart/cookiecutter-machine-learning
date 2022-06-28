@@ -13,6 +13,10 @@ import config
 import model_dispatcher
 
 def run(fold, model):
+    """
+    Docstring description of function goes here.
+    """
+    
     df = pd.read_csv(config.TRAINING_FILE)
     df.drop("Unnamed: 0", axis=1, inplace=True)
 
