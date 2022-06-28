@@ -1,10 +1,8 @@
 import argparse
 import warnings
 
-import joblib
 import pandas as pd
 from sklearn import metrics
-from sklearn import tree
 
 from urllib.parse import urlparse
 import mlflow
@@ -32,8 +30,6 @@ def run(fold, model):
 
     accuracy = metrics.accuracy_score(y_valid, preds)
     print(f"Fold={fold}, Accuracy={accuracy}")
-
-    joblib.dump(clf, f"{config.MODEL_OUTPUT}/dt_{fold}.bin")
 
     return accuracy
 
@@ -65,12 +61,7 @@ if __name__ == "__main__":
 
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
 
-        # Model registry does not work with file store
         if tracking_url_type_store != "file":
-            # Register the model
-            # There are other ways to use the Model Registry, which depends on the use case,
-            # please refer to the doc for more information:
-            # https://mlflow.org/docs/latest/model-registry.html#api-workflow
             mlflow.sklearn.log_model(args.model, "model", registered_model_name="ModelNameGoesHere")
         else:
             mlflow.sklearn.log_model(args.model, "model")
