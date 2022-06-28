@@ -3,6 +3,7 @@ import warnings
 
 import pandas as pd
 from sklearn import metrics
+from sklearn import tree
 
 from urllib.parse import urlparse
 import mlflow
@@ -34,21 +35,14 @@ def run(fold, model):
     return accuracy
 
 if __name__ == "__main__":
-    with mlflow.start_run():
-        warnings.filterwarnings("ignore")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--fold", type=int, nargs='?', default=1)
+    parser.add_argument("--model", type=str, nargs='?', default="rf")
+    parser.add_argument("--name", type=str, nargs='?', default="default")
+    args = parser.parse_args()
         
-        parser = argparse.ArgumentParser()
-
-        parser.add_argument(
-            "--fold",
-            type=int
-        )
-        parser.add_argument(
-            "--model",
-            type=str
-        )
-
-        args = parser.parse_args()
+    with mlflow.start_run(run_name=args.name) as mlflow_run:
+        warnings.filterwarnings("ignore")  
 
         accuracy = run(
             fold=args.fold,
