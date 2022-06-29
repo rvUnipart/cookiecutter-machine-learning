@@ -1,5 +1,5 @@
 import os, sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../models')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..')))
 import config
 import pandas as pd
 from sklearn.model_selection import StratifiedKFold

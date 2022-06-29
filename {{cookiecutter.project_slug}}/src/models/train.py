@@ -9,8 +9,10 @@ from urllib.parse import urlparse
 import mlflow
 import mlflow.sklearn
 
-import config
 import model_dispatcher
+import os, sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..')))
+import config
 
 def run(fold, model):
     """
