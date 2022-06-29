@@ -5,7 +5,7 @@ import logging
 import pandas as pd
 from sklearn.model_selection import StratifiedKFold
 
-if __name__ == "__main__":
+def create_folds():
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.DEBUG)
     ch = logging.StreamHandler()
@@ -32,4 +32,7 @@ if __name__ == "__main__":
 
     logger.info('Writing to csv')
     filepath = config.TRAINING_FILE
-    mnist_train_df.to_csv(filepath, index=False) 
+    mnist_train_df.to_csv(filepath, index=False)
+
+if __name__ == "__main__":
+    create_folds()
