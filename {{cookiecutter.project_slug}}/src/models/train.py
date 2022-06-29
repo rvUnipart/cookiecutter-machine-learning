@@ -31,13 +31,14 @@ def run(fold, model):
     y_valid = df_valid.label.values
 
     clf = model_dispatcher.models[model]
+    clf_params = clf.get_params()
     clf.fit(X_train, y_train)
     preds = clf.predict(X_valid)
 
     accuracy = metrics.accuracy_score(y_valid, preds)
-    print(f"Fold={fold}, Accuracy={accuracy}")
+    print(f"Fold={fold}\tAccuracy={accuracy}")
 
-    return accuracy
+    return accuracy, clf_params
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -49,13 +50,14 @@ if __name__ == "__main__":
     with mlflow.start_run(run_name=args.name) as mlflow_run:
         warnings.filterwarnings("ignore")  
 
-        accuracy = run(
+        accuracy, clf_params = run(
             fold=args.fold,
             model=args.model
         )
 
         mlflow.log_param("fold", args.fold)
         mlflow.log_param("model", args.model)
+        mlflow.log_params(clf_params)
         mlflow.log_metric("accuracy", accuracy)
 
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
