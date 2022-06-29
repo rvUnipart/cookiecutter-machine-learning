@@ -20,7 +20,6 @@ def run(fold, model):
     """
     
     df = pd.read_csv(config.TRAINING_FILE)
-    df.drop("Unnamed: 0", axis=1, inplace=True)
 
     df_train = df[df.kfold != fold].reset_index(drop=True)
     df_valid = df[df.kfold == fold].reset_index(drop=True)

@@ -23,4 +23,4 @@ if __name__ == "__main__":
 
     print("Writing to csv")
     filepath = config.TRAINING_FILE
-    mnist_train_df.to_csv(filepath) 
+    mnist_train_df.to_csv(filepath, index=False) 
