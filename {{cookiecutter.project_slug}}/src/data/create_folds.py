@@ -1,9 +1,12 @@
+import os, sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../models')))
+import config
 import pandas as pd
 from sklearn.model_selection import StratifiedKFold
 
 if __name__ == "__main__":
     print("Loading data")
-    mnist_train_df = pd.read_csv("../../data/raw/mnist_train.csv")
+    mnist_train_df = pd.read_csv(config.RAW_DATA_FILE)
 
     X = mnist_train_df.drop("label", axis=1)
     y = mnist_train_df.loc[:,'label']
@@ -19,5 +22,5 @@ if __name__ == "__main__":
         fold += 1
 
     print("Writing to csv")
-    filepath = "../../data/processed/mnist_train_folds.csv"
+    filepath = config.TRAINING_FILE
     mnist_train_df.to_csv(filepath) 
