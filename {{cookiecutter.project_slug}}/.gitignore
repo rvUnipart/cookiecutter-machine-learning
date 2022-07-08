@@ -1,9 +1,14 @@
-mlruns
-/models/
-/data/
+# Mlflow
+mlruns/
+mlartifacts/
+outputs/
+mlruns.db
+
+# Mac
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
-__pycache__/
+__pycache__
 *.py[cod]
 *$py.class
 
@@ -12,7 +17,6 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-env/
 build/
 develop-eggs/
 dist/
@@ -28,6 +32,8 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
+node_modules
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -41,7 +47,6 @@ pip-delete-this-directory.txt
 
 # Unit test / coverage reports
 htmlcov/
-.tox/
 .coverage
 .coverage.*
 .cache
@@ -51,53 +56,32 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
 # Sphinx documentation
 docs/
-
-# PyBuilder
-target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# pyenv
-.python-version
-
-# celery beat schedule file
-celerybeat-schedule
-
-# SageMath parsed files
-*.sage.py
-
-# dotenv
+# Environments
+env
+env3
 .env
-
-# virtualenv
 .venv
+env/
 venv/
 ENV/
+env.bak/
+venv.bak/
+.python-version
 
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
+# Editor files
+.*project
+*.swp
+*.swo
+*.idea
+*.vscode
+*.iml
+*~
 
 # mkdocs documentation
 /site
@@ -105,6 +89,18 @@ ENV/
 # mypy
 .mypy_cache/
 
-# IDE settings
-.vscode/
-.idea/
+# java targets
+target/
+
+# R notebooks
+.Rproj.user
+example/tutorial/R/*.nb.html
+
+# travis_wait command logs
+travis_wait*.log
+
+# Pytorch logs
+lightning_logs
+
+# tox logs
+*.tox
