@@ -1,22 +1,13 @@
-# Mlflow
-mlruns/
-mlartifacts/
-outputs/
-mlruns.db
-
-# Mac
-.DS_Store
-
 # Byte-compiled / optimized / DLL files
-__pycache__
+__pycache__/
 *.py[cod]
-*$py.class
 
 # C extensions
 *.so
 
 # Distribution / packaging
 .Python
+env/
 build/
 develop-eggs/
 dist/
@@ -28,12 +19,9 @@ lib64/
 parts/
 sdist/
 var/
-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
-node_modules
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -47,60 +35,55 @@ pip-delete-this-directory.txt
 
 # Unit test / coverage reports
 htmlcov/
+.tox/
 .coverage
 .coverage.*
 .cache
 nosetests.xml
 coverage.xml
 *.cover
-.hypothesis/
-.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
 
 # Sphinx documentation
-docs/
+docs/_build/
 
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# Environments
-env
-env3
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-.python-version
-
-# Editor files
-.*project
-*.swp
-*.swo
-*.idea
-*.vscode
-*.iml
-*~
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
-
-# java targets
+# PyBuilder
 target/
 
-# R notebooks
-.Rproj.user
-example/tutorial/R/*.nb.html
+# DotEnv configuration
+.env
 
-# travis_wait command logs
-travis_wait*.log
+# Database
+*.db
+*.rdb
 
-# Pytorch logs
-lightning_logs
+# Pycharm
+.idea
 
-# tox logs
-*.tox
+# VS Code
+.vscode/
+
+# Spyder
+.spyproject/
+
+# Jupyter NB Checkpoints
+.ipynb_checkpoints/
+
+# exclude data from source control by default
+/data/
+
+# Mac OS-specific storage files
+.DS_Store
+
+# vim
+*.swp
+*.swo
+
+# Mypy cache
+.mypy_cache/
